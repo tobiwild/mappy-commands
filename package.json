@@ -4,6 +4,7 @@
   "main": "./index",
   "dependencies": {
     "q": "~1.0.1",
+    "minimist": "~0.0.9",
     "child-process-promise": "~0.2.0",
     "shell-escape": "~0.1.0",
     "require-all": "0.0.8"
