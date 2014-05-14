@@ -8,7 +8,7 @@ function printHelp() {
     console.log('');
     console.log('Please specity one of these:');
     console.log('');
-    console.log(Object.keys(commands).join('\n'));    
+    console.log(Object.keys(commands).join('\n'));
 }
 
 if (! ('command' in argv)) {
