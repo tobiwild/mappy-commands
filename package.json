@@ -1,5 +1,9 @@
 {
   "name": "mappy-commands",
+  "repository" : {
+     "type": "git",
+     "url": "http://github.com/tobiwild/mappy-commands.git"
+  },
   "description": "Commands to control Mappy",
   "main": "./index",
   "dependencies": {
