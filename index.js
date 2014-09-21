@@ -10,15 +10,37 @@ for (var file in commandMap) {
     }
 }
 
-var commandInstances = {};
-
-module.exports = {
-    commands: commands,
-    get: function(name) {
-        if (! (name in commandInstances)) {
-            commandInstances[name] = new commands[name]();
-        }
-
-        return commandInstances[name];
-    }
+var MappyCommands = function(commands) {
+    this.commands = commands;
+    this.commandInstances = {};
 };
+
+MappyCommands.prototype.get = function(name) {
+    if (! (name in this.commandInstances)) {
+        this.commandInstances[name] = new this.commands[name]();
+    }
+
+    return this.commandInstances[name];
+};
+
+MappyCommands.prototype.runSerial = function(command, params) {
+    params.command = command;
+
+    this.get('RunSerialCommand').run(params);
+};
+
+MappyCommands.prototype.say = function(text) {
+    this.runSerial('TextToSpeechCommand', {
+        language: 'de',
+        pitch: 400,
+        text: text
+    });
+};
+
+MappyCommands.prototype.play = function(file) {
+    this.runSerial('PlayAudioFileCommand', {
+        file: file
+    });
+};
+
+module.exports = new MappyCommands(commands);
