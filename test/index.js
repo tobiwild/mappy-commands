@@ -11,9 +11,9 @@ describe('package export', function() {
     });
 
     it('should have only commands included', function() {
-        for (var exportName in exports) {
+        for (var exportName in exports.commands) {
             exportName.should.endWith('Command');
-            exports[exportName].prototype.run.should.be.type('function');
+            exports.commands[exportName].prototype.run.should.be.type('function');
         }
     });
 });

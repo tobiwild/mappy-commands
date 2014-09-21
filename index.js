@@ -10,4 +10,15 @@ for (var file in commandMap) {
     }
 }
 
-module.exports = commands;
+var commandInstances = {};
+
+module.exports = {
+    commands: commands,
+    get: function(name) {
+        if (! (name in commandInstances)) {
+            commandInstances[name] = new commands[name]();
+        }
+
+        return commandInstances[name];
+    }
+};
