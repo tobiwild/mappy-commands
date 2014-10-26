@@ -24,7 +24,7 @@ MappyCommands.prototype.get = function(name) {
 };
 
 MappyCommands.prototype.runSerial = function(command, params) {
-    params.command = command;
+    params.command = this.get(command);
 
     this.get('RunSerialCommand').run(params);
 };
