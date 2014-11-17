@@ -1,6 +1,6 @@
 'use strict';
 
-var commands = require('./index');
+var commands = require('./index').commands;
 
 var argv = require('minimist')(process.argv.slice(2));
 

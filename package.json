@@ -1,17 +1,17 @@
 {
   "name": "mappy-commands",
-  "repository" : {
-     "type": "git",
-     "url": "http://github.com/tobiwild/mappy-commands.git"
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/tobiwild/mappy-commands.git"
   },
   "description": "Commands to control Mappy",
   "main": "./index",
   "dependencies": {
-    "q": "~1.0.1",
+    "child-process-promise": "^1.0.0",
     "minimist": "~0.0.9",
-    "child-process-promise": "~0.2.0",
-    "shell-escape": "~0.1.0",
-    "require-all": "0.0.8"
+    "q": "~1.0.1",
+    "require-all": "0.0.8",
+    "shell-escape": "~0.1.0"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
