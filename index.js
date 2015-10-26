@@ -1,6 +1,7 @@
 'use strict';
 
-var commandMap = require('require-all')(__dirname + '/lib/command');
+var commandMap = require('require-all')(__dirname + '/lib/command'),
+    config = require('./config.json');
 
 var commands = {};
 
@@ -12,15 +13,19 @@ for (var file in commandMap) {
 
 var MappyCommands = function(commands) {
     this.commands = commands;
-    this.commandInstances = {};
+    this.instances = {};
 };
 
 MappyCommands.prototype.get = function(name) {
-    if (! (name in this.commandInstances)) {
-        this.commandInstances[name] = new this.commands[name]();
+    if (! (name in this.instances)) {
+        if (name in config) {
+            this.instances[name] = new this.commands[name](config[name]);
+        } else {
+            this.instances[name] = new this.commands[name]();
+        }
     }
 
-    return this.commandInstances[name];
+    return this.instances[name];
 };
 
 MappyCommands.prototype.runSerial = function(command, params) {
@@ -30,8 +35,8 @@ MappyCommands.prototype.runSerial = function(command, params) {
 };
 
 MappyCommands.prototype.say = function(text) {
-    this.runSerial('TextToSpeechCommand', {
-        language: 'de',
+    this.runSerial('TextToSpeechVoiceRssCommand', {
+        language: 'de-de',
         pitch: 400,
         text: text
     });
