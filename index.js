@@ -36,8 +36,6 @@ MappyCommands.prototype.runSerial = function(command, params) {
 
 MappyCommands.prototype.say = function(text) {
     this.runSerial('TextToSpeechVoiceRssCommand', {
-        language: 'de-de',
-        pitch: 400,
         text: text
     });
 };
