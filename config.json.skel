@@ -3,5 +3,8 @@
         "key": "xxx",
         "language": "de-de",
         "options": "contrast 50 reverb speed 0.7"
+    },
+    "TextToSpeechCommand": {
+        "language": "de"
     }
 }
