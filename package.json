@@ -14,7 +14,7 @@
     "shell-escape": "^0.2.0"
   },
   "devDependencies": {
-    "grunt": "^1.0.3",
+    "grunt": "^1.5.3",
     "grunt-contrib-jshint": "^2.0.0",
     "grunt-mocha-cli": "^4.0.0",
     "should": "^13.2.3"
